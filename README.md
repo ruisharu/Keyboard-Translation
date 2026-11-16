@@ -1,17 +1,13 @@
-# Keyboard Translation
+입력한 문장을 특정 언어로 번역해 주는 프로그램입니다.
 
-Windows 11에서 입력한 문장을 OpenAI로 번역하고 현재 입력 칸에 넣는 데스크톱 앱입니다. Python으로 직접 실행하거나 Windows에서 실행 파일을 만들 수 있습니다.
+한국어, 영어, 일본어, 중국어 간체·번체, 스페인어를 양쪽 모두 지원합니다.
+직접 번역 입력창도 제공합니다.
 
-- **Ctrl+Q**: 커서 앞의 현재 줄을 번역해 교체합니다. 번역 중 원문은 그대로 둡니다.
-- **Ctrl+Tab**: 입력 언어(왼쪽)와 출력 언어(오른쪽)를 고르는 미니 창을 엽니다. 언어를 클릭하거나 **2초간 올려두면** 선택됩니다. **더블클릭**, Enter 또는 `적용`으로 확정하며 Esc로 취소합니다.
-- 한국어, 영어, 일본어, 중국어 간체·번체, 스페인어를 양쪽 모두 지원합니다.
-- 트레이 메뉴 또는 메인 창에서 전역 단축키를 일시정지하면 다른 앱에서 원래 Ctrl+Q/Ctrl+Tab을 사용할 수 있습니다.
-- 직접 번역 입력창도 제공하며, 결과를 복사할 수 있습니다. 자동으로 Enter를 누르거나 채팅을 전송하지 않습니다.
+- Windows 11에서만 지원을 보장합니다. (이외의 운영체제는 작동을 보장하지 않습니다.)
 
-## Windows 11에서 시작하기
-
-1. [Python 3.12](https://www.python.org/downloads/windows/) 이상(3.14까지 지원) 또는 [uv](https://docs.astral.sh/uv/getting-started/installation/)를 설치합니다.
-2. 저장소 폴더에서 PowerShell을 열고 실행합니다.
+1. 'KeyboardTranslationInstaller.exe' or 'KeyboardTranslation-0.1.8.exe'를 설치합니다.
+2. [Python 3.12](https://www.python.org/downloads/windows/) 이상(3.14까지 지원) 또는 [uv](https://docs.astral.sh/uv/getting-started/installation/)를 설치합니다.
+3. 저장소 폴더에서 PowerShell을 열고 실행합니다.
 
 ```powershell
 uv sync --frozen
@@ -26,9 +22,10 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m keyboard_translation
 ```
 
-3. 앱에 OpenAI API 키를 입력합니다. 기본 모델은 `gpt-4.1-mini`이며 설정에서 바꿀 수 있습니다. **ChatGPT 구독과 API 결제는 별개**입니다. API 사용 가능한 키와 사용 한도가 필요합니다.
-4. 입력·출력 언어를 고르고 설정을 저장합니다. 기본은 한국어 → 일본어입니다.
-5. 메모장 입력 칸에 `안녕하세요`를 쓰고 Ctrl+Q를 누른 뒤 키에서 손을 뗍니다. 번역이 끝날 때까지 마우스와 키보드 입력을 멈추면 같은 칸에 결과가 들어갑니다.
+4. [OpenAI API 사이트](https://platform.openai.com/api-keys)에 들어가서 API 키를 발급 받습니다.
+5. 앱에 OpenAI API 키를 입력합니다. 기본 모델은 `gpt-4.1-mini`이며 설정에서 바꿀 수 있습니다.
+5-1. **ChatGPT 구독과 API 결제는 별개**입니다. API 사용 가능한 키와 사용 한도가 필요하며, API 이용료는 유료입니다.
+6. 입력·출력 언어를 고르고 설정을 저장합니다. 한국어, 일본어, 중국어 간체/번체, 스페인어를 지원하며, 기본은 한국어 → 일본어입니다.
 
 기본 캡처는 **Shift+Home으로 선택되는 커서 앞의 현재 줄**입니다. 여러 줄이나 일부 문장만 번역하려면 캡처 방식을 `선택 영역`으로 바꾸고 텍스트를 직접 선택한 뒤 Ctrl+Q를 누르세요. Windows 접근성 기능으로 실제 선택 영역을 확인한 경우에만 자동으로 붙여넣습니다. 선택 영역을 확인할 수 없는 입력 칸은 번역 결과를 앱에 표시하며 직접 복사해 사용할 수 있습니다. 선택이 없을 때 줄 전체를 복사하는 편집기에서도 이를 선택 영역으로 간주해 자동 교체하지 않습니다.
 
